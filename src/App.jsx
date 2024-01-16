@@ -1,7 +1,9 @@
 import LogicArray from "./components/LogicArray"
 
+const logicArray = LogicArray();
+
 const App = () => {
-  console.log(LogicArray);
+  console.log(logicArray);
   return (
     <>
       hola
