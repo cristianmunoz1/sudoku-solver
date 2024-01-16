@@ -6,13 +6,14 @@ export const LogicArray = () => {
   }
 
   const dialog = () => {
+    debugger;
     const dimensiones = prompt('Cuantas dimensiones quieres que tenga el sudoku?');
-    if (!dimensiones) {
+    if (dimensiones === '') {
       alert('Agrega un valor');
       return;
     }
-    if (dimensiones < 0 ) {
-      alert('Agrega un número positivo');
+    if (dimensiones && dimensiones <= 0 ) {
+      alert('Agrega un número mayor que 0');
       return;
     }
 
@@ -21,10 +22,13 @@ export const LogicArray = () => {
       return;
     }
 
-    debugger;
-    if (!parseInt(dimensiones)) {
+    if (dimensiones && !parseInt(dimensiones)) {
       alert('Agrega un número');
       return;
+    }
+
+    if (dimensiones === null) {
+      return false;
     }
 
     return dimensiones;

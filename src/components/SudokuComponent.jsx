@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 const SudokuComponent = props => {
 
   const canvasRef = useRef(null);
+  let dimensiones = null;
   const sudokuGrid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -16,38 +17,43 @@ const SudokuComponent = props => {
   ];
 
   useEffect(() => {
-    let dimensiones = props.logicArray.controller().dialog();
-    while (!dimensiones) dimensiones = props.logicArray.controller().dialog();
+    dimensiones = props.logicArray.controller().dialog();
+    while (dimensiones === undefined) dimensiones = props.logicArray.controller().dialog();
 
-    //Constantes para definir el tamaño del sudoku completo y de cada celda
-    const gridSize = 400;
-    debugger;
-    const cellSize = gridSize / dimensiones;
-
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-
-    const drawGrid = () => {
-      ctx.clearRect(0, 0, gridSize, gridSize); //Limpiamos el canvas
-
-      ctx.beginPath();
-      for (let i = 1; i < 9; i++) {
-        ctx.lineWidth = (i % 3 === 0) ? 2 : 1; // Si la línea es múltiplo de 3, tiene mayor grosor para separar las regiones
-
-        ctx.moveTo(i * cellSize, 0);
-        ctx.lineTo(i * cellSize, gridSize);
-
-        ctx.moveTo(0, i * cellSize);
-        ctx.lineTo(gridSize, i * cellSize);
-
+    if (dimensiones) {
+      //Constantes para definir el tamaño del sudoku completo y de cada celda
+      const gridSize = 400;
+      debugger;
+      const cellSize = gridSize / dimensiones;
+  
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext('2d');
+  
+      const drawGrid = () => {
+        ctx.clearRect(0, 0, gridSize, gridSize); //Limpiamos el canvas
+  
+        ctx.beginPath();
+        for (let i = 1; i < 9; i++) {
+          ctx.lineWidth = (i % 3 === 0) ? 2 : 1; // Si la línea es múltiplo de 3, tiene mayor grosor para separar las regiones
+  
+          ctx.moveTo(i * cellSize, 0);
+          ctx.lineTo(i * cellSize, gridSize);
+  
+          ctx.moveTo(0, i * cellSize);
+          ctx.lineTo(gridSize, i * cellSize);
+  
+        }
+        ctx.stroke();
       }
-      ctx.stroke();
+      drawGrid();
     }
 
-
-    drawGrid();
   }, []);
-  return <canvas ref={canvasRef} width={450} height={450} />;
+  return (
+    <>
+      {dimensiones ? <canvas ref={canvasRef} width={450} height={450} /> : <p>Gracias por jugar</p>}
+    </>
+  );
 }
 
 
