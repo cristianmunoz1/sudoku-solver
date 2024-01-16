@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import '../styles/canvas.css';
+
 const SudokuComponent = props => {
 
   const canvasRef = useRef(null);

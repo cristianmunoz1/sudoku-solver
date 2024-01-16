@@ -21,8 +21,8 @@ export const LogicArray = () => {
       return;
     }
 
-    if (dimensiones > 12) {
-      alert('Agrega un número menor a 13');
+    if (dimensiones > 9) {
+      alert('Agrega un número menor a 10');
       return;
     }
 
