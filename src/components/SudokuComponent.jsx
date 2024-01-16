@@ -6,6 +6,7 @@ const SudokuComponent = props => {
 
   const canvasRef = useRef(null);
   let dimensiones = null;
+  const gridSize = 450;
   const sudokuGrid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
@@ -29,7 +30,6 @@ const SudokuComponent = props => {
       console.log(props.logicArray.logic);
 
       //Constantes para definir el tamaño del sudoku completo y de cada celda
-      const gridSize = 400;
       const cellSize = gridSize / dimensiones;
   
       const canvas = canvasRef.current;
@@ -40,7 +40,7 @@ const SudokuComponent = props => {
   
         ctx.beginPath();
         for (let i = 1; i < 9; i++) {
-          ctx.lineWidth = (i % 3 === 0) ? 2 : 1; // Si la línea es múltiplo de 3, tiene mayor grosor para separar las regiones
+          ctx.lineWidth = 1; // Si la línea es múltiplo de 3, tiene mayor grosor para separar las regiones
   
           ctx.moveTo(i * cellSize, 0);
           ctx.lineTo(i * cellSize, gridSize);
@@ -56,9 +56,9 @@ const SudokuComponent = props => {
 
   }, []);
   return (
-    <>
-      {<canvas ref={canvasRef} width={450} height={450} /> }
-    </>
+    <div className="contenedor">
+      <canvas ref={canvasRef} width={gridSize} height={gridSize} />
+    </div>
   );
 }
 
