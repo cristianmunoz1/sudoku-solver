@@ -8,6 +8,11 @@ export const LogicArray = () => {
   const dialog = () => {
     debugger;
     const dimensiones = prompt('Cuantas dimensiones quieres que tenga el sudoku? (dale en cancelar o escribe "salir" para salir)');
+
+    if (dimensiones === null || dimensiones.toLowerCase() === 'salir') {
+      return false;
+    }
+
     if (dimensiones === '') {
       alert('Agrega un valor');
       return;
@@ -25,10 +30,6 @@ export const LogicArray = () => {
     if (dimensiones && !parseInt(dimensiones)) {
       alert('Agrega un número');
       return;
-    }
-
-    if (dimensiones === null || dimensiones.toLowerCase() === 'salir') {
-      return false;
     }
 
     return dimensiones;
