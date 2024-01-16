@@ -17,13 +17,17 @@ const SudokuComponent = props => {
   ];
 
   useEffect(() => {
-    dimensiones = props.logicArray.controller().dialog();
-    while (dimensiones === undefined) dimensiones = props.logicArray.controller().dialog();
+    const controller = props.logicArray.controller();
+    dimensiones = controller.dialog();
+    while (dimensiones === undefined) dimensiones = controller.dialog();
 
     if (dimensiones) {
+      controller.setRow(dimensiones);
+      controller.setColumn(dimensiones);
+      console.log(props.logicArray.logic);
+
       //Constantes para definir el tamaño del sudoku completo y de cada celda
       const gridSize = 400;
-      debugger;
       const cellSize = gridSize / dimensiones;
   
       const canvas = canvasRef.current;
@@ -51,7 +55,7 @@ const SudokuComponent = props => {
   }, []);
   return (
     <>
-      {dimensiones ? <canvas ref={canvasRef} width={450} height={450} /> : <p>Gracias por jugar</p>}
+      {<canvas ref={canvasRef} width={450} height={450} /> }
     </>
   );
 }
