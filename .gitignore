@@ -1,0 +1,73 @@
+# Node.js
+node_modules/
+
+# Build files
+build/
+dist/
+
+# Dependency directories
+/.pnp/
+.pnp.js
+
+# dotenv environment variables file
+.env
+
+# IDE files
+.idea/
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Yarn
+.yarn/
+.yarnrc
+.yarn-integrity
+
+# Jest
+coverage/
+
+# Log files
+*.log
+logs/
+
+# Editor directories and files
+/.vscode
+/.idea
+
+# Jest test coverage
+coverage/
+
+# npm package files
+*.tgz
+
+# Next.js
+.next/
+out/
+
+# Compiled files
+*.COM
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Package files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Miscellaneous
+*.log
+*.tmp
+*.swp
