@@ -21,7 +21,8 @@ export const LogicArray = () => {
       return;
     }
 
-    if (!Number.isInteger(dimensiones)) {
+    debugger;
+    if (!parseInt(dimensiones)) {
       alert('Agrega un número');
       return;
     }
