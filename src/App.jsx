@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import LogicArray from "./components/LogicArray"
+import SudokuComponent from "./components/SudokuComponent";
 
 const logicArray = LogicArray();
 
@@ -14,7 +15,7 @@ const App = () => {
 
   return (
     <>
-      hola
+      <SudokuComponent/>
     </>
   )
 }
