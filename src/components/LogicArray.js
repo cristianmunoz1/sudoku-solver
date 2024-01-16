@@ -5,6 +5,30 @@ export const LogicArray = () => {
     column: 0
   }
 
+  const dialog = () => {
+    const dimensiones = prompt('Cuantas dimensiones quieres que tenga el sudoku?');
+    if (!dimensiones) {
+      alert('Agrega un valor');
+      return;
+    }
+    if (dimensiones < 0 ) {
+      alert('Agrega un número positivo');
+      return;
+    }
+
+    if (dimensiones > 12) {
+      alert('Agrega un número menor a 13');
+      return;
+    }
+
+    if (!Number.isInteger(dimensiones)) {
+      alert('Agrega un número');
+      return;
+    }
+
+    return dimensiones;
+  }
+
   const setRow = row => {
     logic.row = row;
   }
@@ -14,7 +38,7 @@ export const LogicArray = () => {
   }
   
   const controller = () => {
-    return { setRow, setColumn }
+    return { dialog, setRow, setColumn }
   }
     
   return {logic, controller};
