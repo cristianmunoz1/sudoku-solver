@@ -1,4 +1,4 @@
-export const LogicArray = () => {
+const LogicArray = () => {
 
   const logic = {
     row: 0,

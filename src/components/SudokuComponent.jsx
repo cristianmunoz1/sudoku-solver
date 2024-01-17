@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 
+import CanvasComponent from "./Canvas";
+
 import '../styles/canvas.css';
 
 const SudokuComponent = props => {
@@ -28,30 +30,11 @@ const SudokuComponent = props => {
       controller.setRow(dimensiones);
       controller.setColumn(dimensiones);
       console.log(props.logicArray.logic);
-
-      //Constantes para definir el tamaño del sudoku completo y de cada celda
-      const cellSize = gridSize / dimensiones;
   
       const canvas = canvasRef.current;
       const ctx = canvas.getContext('2d');
-  
-      const drawGrid = () => {
-        ctx.clearRect(0, 0, gridSize, gridSize); //Limpiamos el canvas
-  
-        ctx.beginPath();
-        for (let i = 1; i < 9; i++) {
-          ctx.lineWidth = 1; // Si la línea es múltiplo de 3, tiene mayor grosor para separar las regiones
-  
-          ctx.moveTo(i * cellSize, 0);
-          ctx.lineTo(i * cellSize, gridSize);
-  
-          ctx.moveTo(0, i * cellSize);
-          ctx.lineTo(gridSize, i * cellSize);
-  
-        }
-        ctx.stroke();
-      }
-      drawGrid();
+      const canvasCompontent = CanvasComponent();
+      canvasCompontent.createCanvas(ctx, dimensiones, gridSize);
     }
 
   }, []);

@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
 import LogicArray from "./components/LogicArray"
 import SudokuComponent from "./components/SudokuComponent";
-
-
 
 const App = () => {
   const logicArray = LogicArray();
