@@ -1,4 +1,4 @@
-    function generateValidNumber (positionX, positionY, matrix){
+    export default function GetValidNumbers (positionX, positionY, matrix){
 
         let size = matrix[0].length;
         //Array que contiene en principio todos los valores posibles que puede tener el sudoku

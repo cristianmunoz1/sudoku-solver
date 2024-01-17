@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import CanvasComponent from "./Canvas";
-import generateMatrix from "./MatrixGenerator";
 
 import '../styles/canvas.css';
 
@@ -26,11 +25,11 @@ const SudokuComponent = props => {
       const canvasCompontent = CanvasComponent();
       canvasCompontent.createCanvas(ctx, dimensiones, gridSize);
     }
-    const sudokuGrid = generateMatrix(dimensiones * 3);
-    console.log(sudokuGrid)
+    
     
   }, []);
 
+    
   
 
   return (
