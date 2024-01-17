@@ -8,7 +8,7 @@ const SudokuComponent = props => {
 
   const canvasRef = useRef(null);
   let dimensiones = null;
-  const gridSize = 450;
+  const gridSize = 550;
   const sudokuGrid = [
     [5, 3, 0, 0, 7, 0, 0, 0, 0],
     [6, 0, 0, 1, 9, 5, 0, 0, 0],
