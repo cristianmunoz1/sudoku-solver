@@ -12,7 +12,7 @@
 
         for(let j = 0; j<size; j++){
             const actualValue = matrix[positionX][j];
-            if(actualValue !== 0){
+            if(actualValue !== 0 && validNumbers.includes(actualValue)){
                 const indexToDelete = validNumbers.indexOf(actualValue);
                 validNumbers.splice(indexToDelete, 1); 
             }
@@ -21,7 +21,7 @@
         //Con este ciclo aseguramos que ningún elemento del array de números válidos esté en la misma columna
         for(let k = 0; k<size; k++){
             const actualValue = matrix[k][positionY];
-            if(actualValue !== 0){
+            if(actualValue !== 0 && validNumbers.includes(actualValue)){
                 const indexToDelete = validNumbers.indexOf(actualValue);
                 validNumbers.splice(indexToDelete, 1);
             }
@@ -35,16 +35,16 @@
         let lastQuadrantColumn = firstQuadrantColumn + 2;
         
         //Con este ciclo nos aseguramos que en validNumbers no haya números que estén en el mismo cuadrante
-/*         for(let i = firstQuadrantRow; i<=lastQuadrantRow; i++){
+         for(let i = firstQuadrantRow; i<=lastQuadrantRow; i++){
             for(let j = firstQuadrantColumn; j <= lastQuadrantColumn; j++){
                 let actualValue = matrix[i][j];
                 
-                if(actualValue !== 0){
+                if(actualValue !== 0 && validNumbers.includes(actualValue)){
                     let index = validNumbers.indexOf(actualValue);
                     validNumbers.splice(index, 1);
                 }
             }
-        } */
+        } 
 
         return validNumbers;
     }

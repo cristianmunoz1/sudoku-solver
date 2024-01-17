@@ -3,8 +3,8 @@ import { expect, test } from 'vitest';
 
 const sudokuGrid = [
   [5, 3, 0, 0, 7, 0, 0, 0, 0],
-  [6, 0, 0, 1, 0, 5, 0, 0, 0],
-  [0, 0, 8, 0, 0, 0, 0, 6, 0],
+  [6, 0, 0, 1, 9, 0, 0, 0, 0],
+  [0, 9, 8, 0, 0, 0, 0, 6, 0],
   [8, 0, 0, 0, 6, 0, 0, 0, 3],
   [4, 0, 0, 8, 0, 3, 0, 0, 1],
   [7, 0, 0, 0, 2, 0, 0, 0, 6],
@@ -15,5 +15,5 @@ const sudokuGrid = [
 
 
 test("Generate valid numbers for a subcell in a random sudoku.", () =>{
-   expect(generateValidNumber(1, 1, sudokuGrid)).toEqual([2,4, 7, 8, 9]); 
+   expect(generateValidNumber(1, 1, sudokuGrid)).toEqual([2, 4, 7]); 
 })
