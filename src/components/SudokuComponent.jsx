@@ -37,6 +37,7 @@ const SudokuComponent = props => {
       canvasCompontent.createCanvas(ctx, dimensiones, gridSize);
     }
 
+    
   }, []);
   return (
     <div className="contenedor">
