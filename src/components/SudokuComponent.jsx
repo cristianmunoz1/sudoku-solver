@@ -29,9 +29,6 @@ const SudokuComponent = props => {
     
   }, []);
 
-    
-  
-
   return (
     <div className="contenedor">
       <canvas ref={canvasRef} width={gridSize} height={gridSize} />

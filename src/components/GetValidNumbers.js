@@ -6,25 +6,22 @@
         for(let i = 1; i<=9; i++){
             validNumbers.push(i);
         }
-
-        //Con este ciclo nos aseguramos que el array de números válidos no contenga ninguno que esté en la misma fila
+        
+        //Con este ciclo nos aseguramos que el array de números válidos no contenga ninguno que esté en la misma fila y en la misma columna
         for(let j = 0; j<size; j++){
-            const actualValue = matrix[positionX][j];
-            if(actualValue !== 0 && validNumbers.includes(actualValue)){
-                const indexToDelete = validNumbers.indexOf(actualValue);
+            const actualValueX = matrix[positionX][j];
+            if(actualValueX !== 0 && validNumbers.includes(actualValueX)){
+                const indexToDelete = validNumbers.indexOf(actualValueX);
                 validNumbers.splice(indexToDelete, 1); 
             }
-        }
 
-        //Con este ciclo aseguramos que ningún elemento del array de números válidos esté en la misma columna
-        for(let k = 0; k<size; k++){
-            const actualValue = matrix[k][positionY];
-            if(actualValue !== 0 && validNumbers.includes(actualValue)){
-                const indexToDelete = validNumbers.indexOf(actualValue);
+            const actualValueY = matrix[j][positionY];
+            if(actualValueY !== 0 && validNumbers.includes(actualValueY)){
+                const indexToDelete = validNumbers.indexOf(actualValueY);
                 validNumbers.splice(indexToDelete, 1);
             }
         }
-        
+
         //Encontramos la primera fila y columna del cuadrante en el que nos encontramos según la posición
         let firstQuadrantRow = Math.floor(positionX/3)*3
         let lastQuadrantRow = firstQuadrantRow + 2;
