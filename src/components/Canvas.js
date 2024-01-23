@@ -3,7 +3,6 @@ import RandomSudokuGenerator from "./RandomSudokuGenerator";
 const Canvas = () => {
     const createCanvas = (canvas, dimensiones, gridSize) => {
         const sudoku = RandomSudokuGenerator(dimensiones * 3);
-        console.log(sudoku)
         dimensiones = parseInt(dimensiones);
         //Constantes para definir el tamaño del sudoku completo y de cada celda
         const subCellSize = (gridSize / dimensiones) / 3;
@@ -26,9 +25,10 @@ const Canvas = () => {
         canvas.font = '20px Arial';
         canvas.textAlign = 'center';
         canvas.textBaseline = 'middle';
-        for(let i = 0; i < 9; i++){
-            for(let j = 0; j < 9; j++){
-                if(sudoku[i][j] !== 0){
+        for(let i = 0; i < dimensiones; i++){
+            for(let j = 0; j < dimensiones; j++){
+                if (sudoku[i][j]) {
+                    debugger;
                     canvas.fillText(
                         sudoku[i][j].toString(),
                         j * (subCellSize) + subCellSize / 2,
@@ -39,7 +39,29 @@ const Canvas = () => {
         }
     }
 
-    return { createCanvas };
+    // Función para manejar el clic en el canvas
+    const manejarClic = (canvas, ctx, dimensiones, gridSize, event) => {
+        var rect = canvas.getBoundingClientRect();
+        dimensiones = parseInt(dimensiones);
+        const subCellSize = (gridSize / dimensiones) / 3;
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+
+        // Calcular la fila y columna clickeada
+        var filaClickeada = Math.floor(y / subCellSize);
+        var columnaClickeada = Math.floor(x / subCellSize);
+
+        const num = parseInt(prompt(`Selecciona número para fila ${filaClickeada+1} y columna ${columnaClickeada+1}`));
+        ctx.font = '20px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(
+            num.toString(), columnaClickeada * (subCellSize) + subCellSize / 2,
+            filaClickeada * (subCellSize) + subCellSize / 2
+        );
+    }
+
+    return { createCanvas, manejarClic };
 }
 
   
